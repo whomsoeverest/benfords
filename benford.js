@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-
+app.set('view engine', 'jade');
 
 app.get('/', function (req, res) {
   
@@ -17,9 +17,13 @@ app.get('/', function (req, res) {
   output = '';
   for(i in counts) {
      output += '<br>' + i + ' = ' + counts[i];  
+     if(i > 0 && i < 10) {
+        output += ' >> ' + (counts[i] / counts.total) * 100 + '%';    
+     }
   }
   
-  res.send(output);
+  //res.send(output);
+  res.render('index', { results: counts});
 });
 
 app.listen(3000, function () {

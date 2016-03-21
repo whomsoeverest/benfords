@@ -1,0 +1,15 @@
+html
+  head
+    title Benford's Law
+  body
+    table
+        thead
+            tr
+                td digit
+                td count
+                td percentage
+            each count, digit in results
+              tr
+                td= digit
+                td= count
+                td= (count / results.total) * 100
