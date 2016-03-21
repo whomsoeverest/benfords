@@ -1,0 +1,16 @@
+# Ignore OSX file system object
+.DS_Store
+.nodemonignore
+
+# Ignore npm log file
+npm-debug.log
+
+# Ignore Node Modules
+node_modules/
+
+# Ignore Bower temp folders
+.bower-*/
+
+# Ignore VS Code folder
+.vscode/*
+
