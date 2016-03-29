@@ -1,7 +1,11 @@
 html
   head
     title Benford's Law
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js')
+    script(src='/js/Chart.js')
+    script(src='/js/scrippy.js')
   body
+    canvas(id='freqChart',width='400',height='400')
     table
         thead
             tr
@@ -9,7 +13,13 @@ html
                 td count
                 td percentage
             each count, digit in results
-              tr
-                td= digit
-                td= count
-                td= (count / results.total) * 100
+              if isNaN(digit)
+                tr
+                  td= digit
+                  td= count
+                  td= (count / results.total) * 100
+              else
+                tr(class='dataPoint')
+                  td= digit
+                  td= count
+                  td= (count / results.total) * 100
